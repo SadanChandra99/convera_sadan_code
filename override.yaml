@@ -1,0 +1,32 @@
+---
+containers:
+  data:
+    image: $SCORE_IMAGE
+    variables:
+      USER_DB_URL: "jdbc:postgresql://ranv-ccn-1-solutions-rds-postgres.cn72dpa6eixq.us-east-1.rds.amazonaws.com:5432/dashboard"
+      USER_DB_USER: "convsolrdsadmin" 
+      USER_DB_PASS: "YPQfWAtdwB7q0p9gRCkLyAFXFvLwqLsB"
+
+      
+      
+    resources:                              # (Optional) CPU and memory resources needed
+      limits:                               #    - (Optional) Maximum allowed
+        memory: "1024Mi"
+        #cpu: "500m"
+      requests:                             #    - (Optional) Minimal required
+        memory: "512Mi"
+        #cpu: "250m"
+
+#resources:
+  # "test-alb-shared-dns":
+  #   type: dns
+  # "order-local-dns":
+  #   type: dns
+
+service:
+  ports:
+    p8080:
+      port: 8080
+      targetPort: 8080
+      
+      
